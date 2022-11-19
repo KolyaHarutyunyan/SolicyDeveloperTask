@@ -36,7 +36,7 @@ const App = () => {
         <Header 
           onCardAdd={addCardHandler}
           onCardsSort={sortCardsHandler}
-          cards={cards}
+          sortable={cards.length >= 2}
         />
         <Main 
           cards={cards}
