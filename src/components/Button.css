@@ -3,10 +3,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 4px;
+    padding: 8px;
     background-color: inherit;
     cursor: pointer;
     color: black;
+    font-size: 12px;
     opacity: 1;
     transition: all 0.2s linear;
 }

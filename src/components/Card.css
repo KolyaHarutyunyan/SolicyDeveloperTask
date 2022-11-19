@@ -16,6 +16,7 @@
     border: none;
     padding: 0;
     color: black;
+    font-size: 16px;
 }
 
 .remove-button:hover {
