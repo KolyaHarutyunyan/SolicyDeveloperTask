@@ -1,0 +1,1 @@
+export const createUniqueId = (): string => Date.now().toString();

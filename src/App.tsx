@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import Footer from "./layout/Footer";
+import Header from "./layout/Header";
+import Main from "./layout/Main";
+import SideBar from "./layout/SideBar";
+import useLocalStorage from "./hooks/useLocalStorage";
+import ICard from "./interfaces/ICard";
+import { getRandomNumber } from "./utils/getRandomNumber";
+import { createUniqueId } from "./utils/createUniqueId";
 
-function App() {
+
+const App = () => {
+  const [cards, setCards] = useLocalStorage<ICard[]>("cards", []);
+  
+  const addCardHandler = () => {
+    const newCard = {
+      id: createUniqueId(),
+      uNumber: getRandomNumber(1000)
+    };
+    setCards((pS: ICard[]) => [...pS, newCard]);
+  };
+
+  const sortCardsHandler = () => {
+    const sortedCards = cards.sort((a: ICard, b: ICard) => a.uNumber - b.uNumber);
+    setCards([...sortedCards]);
+  };
+
+  const removeCardHandler = (cardId: string) => {
+    setCards(cards.filter((item: ICard) => item.id !== cardId));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="container">
+        <Header 
+          onCardAdd={addCardHandler}
+          onCardsSort={sortCardsHandler}
+          cards={cards}
+        />
+        <Main 
+          cards={cards}
+          onCardRemove={removeCardHandler}
+        />
+        <Footer />
+      </div>
+      <SideBar />
     </div>
   );
-}
+};
 
 export default App;

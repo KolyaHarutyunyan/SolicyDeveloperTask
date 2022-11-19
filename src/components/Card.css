@@ -1,0 +1,29 @@
+.card {
+    border: 1px solid;
+    max-width: calc(50% - 10px);
+    width: 100%;
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.remove-button {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    border: none;
+    padding: 0;
+    color: black;
+}
+
+.remove-button:hover {
+    background-color: inherit;
+    color: red;
+}
+
+.card-number {
+    font-weight: 700;
+    font-size: 18px;
+}
