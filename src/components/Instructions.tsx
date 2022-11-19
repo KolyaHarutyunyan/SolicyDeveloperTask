@@ -3,7 +3,7 @@ import React from "react";
 
 const Instructions = () => {
   return (
-    <div className="container">
+    <div className="instructions">
       <p className="text">
         Press the "Add Card" button to add a new Card.
       </p>
