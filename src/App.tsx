@@ -6,8 +6,8 @@ import Main from "./layout/Main";
 import SideBar from "./layout/SideBar";
 import useLocalStorage from "./hooks/useLocalStorage";
 import ICard from "./interfaces/ICard";
-import { getRandomNumber } from "./utils/getRandomNumber";
-import { createUniqueId } from "./utils/createUniqueId";
+import { getRandomNumber } from "./utilities/getRandomNumber";
+import { createUniqueId } from "./utilities/createUniqueId";
 
 
 const App = () => {
